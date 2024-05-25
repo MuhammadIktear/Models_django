@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home Page</title>
+    </head>
+
+    <body>
+        <h1>This is the home page</h1>
+        <h2>{{ author }} <br> {{ age }}</h2>
+
+        <!-- Conditional statement -->
+        {% if age >= 20 %}
+        <h4>You will get a driving license</h4>
+        {% elif age >= 10 and age < 20 %}
+        <h4>You won't get a driving license</h4>
+        {% else %}
+        <h4>You are still a child</h4>
+        {% endif %}
+
+        <!-- For loop -->
+        {% for course in courses %}
+        <h3>{{ course.id }} {{ course.name }} {{ course.Fee }}</h3>
+        {% endfor %}
+
+        <!-- Joining list elements -->
+        <h1>{{ lst|join:" " }}</h1>
+
+        <!-- date-time -->
+        <h4>Date:{{ date | date:"D d M Y" }}</h4>
+        <!-- add filter -->
+        <h1>{{ 'Django' | add:" is best" }} </h1>
+
+        <!-- empty check -->
+        <h1>{{empty | length}}</h1>
+        {% if empty|length == 0 %}
+        <p>Empty string</p>
+        {% endif %}
+
+        <!-- slice -->
+        <h3>Slice 2 char of Bangladesh:{{'Bangladesh' | slice:":2"}}</h3>
+        <!-- truncatechars -->
+        <h3>truncatechars of 6 char of:'Happy coding': {{'Happy coding' | truncatechars:6}}</h3>
+        <!-- word count -->
+        <h3>Word count of "Happy coding": {{'Happy coding' | wordcount}}</h3>
+        <!-- truncatewords -->
+        <h3>truncatewords of 3 words"You can build web apps with python and Django":{{"You can build web apps with python and Django" | truncatewords:3}}</h3>
+
+    </body>
+
+</html>
